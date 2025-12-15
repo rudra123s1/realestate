@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Scape Realty - Tropical Properties</title>
+    <!-- Load Tailwind CSS CDN for dynamic styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for Parallax effect */
+        .parallax-bg {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            /* This is the key CSS property for parallax */
+            background-attachment: fixed;
+        }
+
+        /* Custom font classes to simulate the logo's distinct look */
+        .logo-serif {
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        }
+
+        .logo-sans {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+
+        /* Style for the fixed WhatsApp button */
+        .whatsapp-btn {
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+
+<body class="font-inter antialiased">
+
+    <div id="app" class="min-h-screen bg-gray-50">
+
+        <!-- Floating WhatsApp Button -->
+        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer"
+            class="whatsapp-btn fixed bottom-6 right-6 p-4 rounded-full shadow-2xl flex items-center space-x-2 bg-emerald-500 text-white hover:bg-emerald-600"
+            aria-label="Contact via WhatsApp">
+            <!-- WhatsApp Icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-6 h-6 fill-current">
+                <path
+                    d="M380.9 97.4C339.4 55.9 283.2 32 224 32S118.6 55.9 77.1 97.4 32 153.2 32 212.8c0 37.6 9.2 73.1 26.6 104.2l-30.8 112.5 116.1-30.6c31.1 17.4 66.6 26.6 104.2 26.6 59.6 0 115.4-23.9 156.9-65.4s65.4-97.3 65.4-156.9c0-59.6-23.9-115.4-65.4-156.9zm-63.7 307.7c-33.1 33.1-76.9 51.3-123.6 51.3-46.7 0-90.5-18.2-123.6-51.3s-51.3-76.9-51.3-123.6c0-46.7 18.2-90.5 51.3-123.6s76.9-51.3 123.6-51.3 90.5 18.2 123.6 51.3 51.3 76.9 51.3 123.6c0 46.7-18.2 90.5-51.3 123.6zM321.6 195.8c-7.9-15.8-21.7-25.2-37.4-25.2-15.8 0-29.6 9.4-37.4 25.2-12.7 25.2-4.8 54.3 8.3 77.4 13.1 23.1 34.9 38.9 58 52 23.1 13.1 43.1 17.9 66.2 17.9h.4c1.5 0 2.9-.1 4.3-.2 15.6-.6 28.5-12.5 29.8-28.5 1.3-16-9.6-30.9-25.6-35.3-7.5-2-15.5-3-23.7-3.4h-.4c-18.7 0-36.2-7.5-49.4-20.7s-20.7-30.7-20.7-49.4c0-18.7 7.5-36.2 20.7-49.4s30.7-20.7 49.4-20.7h.4c18.7 0 36.2 7.5 49.4 20.7s20.7 30.7 20.7 49.4c0 18.7-7.5 36.2-20.7 49.4s-30.7 20.7-49.4 20.7h-.4c-18.7 0-36.2-7.5-49.4-20.7s-20.7-30.7-20.7-49.4z" />
+            </svg>
+            <span class="hidden md:block font-bold">WhatsApp</span>
+        </a>
+
+        <!-- 1. Hero Section (Parallax) -->
+        <div class="relative h-screen bg-cover bg-center parallax-bg"
+            style="background-image: url('/im/sunset-luxury-home-stockcake\ \(1\).jpg ');">
+            <div class="absolute inset-0 bg-black opacity-10"></div> <!-- Light overlay -->
+
+            <!-- Header -->
+            <header class="absolute top-0 left-0 w-full z-50 p-6 md:p-8">
+                <div class="flex justify-between items-center max-w-7xl mx-auto">
+                    <!-- Menu Icon (Left) -->
+                    <button class="p-3 bg-white rounded-full shadow-lg hover:bg-gray-100 transition duration-150">
+                        <!-- Menu Icon Placeholder -->
+                        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Logo (Center) -->
+                    <div class="flex flex-col items-center text-white">
+                        <p class="text-xl logo-serif tracking-widest opacity-80">SEA</p>
+                        <h1 class="text-4xl logo-sans font-extrabold tracking-widest">SCAPE</h1>
+                    </div>
+
+                    <!-- Contact Button (Right) -->
+                    <button
+                        class="px-5 py-2 text-sm font-bold text-white uppercase rounded-full bg-emerald-600 hover:bg-emerald-700 transition duration-150 shadow-lg">
+                        <a href="contact.html" >
+                            Contact Us </a>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Hero Text Content -->
+            <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-20 w-full px-4">
+                <h2 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight mb-4 drop-shadow-lg">
+                    Find Your Seaside Escape
+                </h2>
+                <p class="text-lg sm:text-xl max-w-2xl mx-auto opacity-90 drop-shadow-md">
+                    Lombok has become the go-to island for those looking to invest in Indonesia and seeking the
+                    authentic charm of a tropical paradise.
+                </p>
+            </div>
+
+            <!-- Floating Search Bar (JS will handle tab switching) -->
+            <div id="search-bar"
+                class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-[90%] lg:w-[70%] bg-white rounded-xl shadow-2xl p-6 md:p-8 z-30">
+                <!-- Tabs -->
+                <div class="flex space-x-2 mb-6 border-b border-gray-200">
+                    <button data-tab="Villas"
+                        class="tab-button px-6 py-3 text-lg font-semibold transition-all duration-200 text-emerald-600 border-b-4 border-emerald-600">
+                        Villas
+                    </button>
+                    <button data-tab="Lands"
+                        class="tab-button px-6 py-3 text-lg font-semibold transition-all duration-200 text-gray-500 hover:text-gray-700">
+                        Lands
+                    </button>
+                    <div class="flex-grow flex justify-end">
+                        <button class="px-6 py-3 text-lg font-semibold bg-gray-100 text-gray-700 rounded-lg shadow-sm">
+                            PROPERTY SEARCH
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filters and Search Button -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 items-end">
+
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-500 mb-1">Bedrooms</label>
+                        <select
+                            class="w-full p-3 border border-gray-300 rounded-lg text-gray-700 focus:ring-emerald-500 focus:border-emerald-500 bg-white">
+                            <option value="">Select</option>
+                            <option value="1">1 Bedroom</option>
+                            <option value="2">2 Bedrooms</option>
+                            <option value="3">3+ Bedrooms</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-500 mb-1">Location</label>
+                        <select
+                            class="w-full p-3 border border-gray-300 rounded-lg text-gray-700 focus:ring-emerald-500 focus:border-emerald-500 bg-white">
+                            <option value="">Select</option>
+                            <option value="Kuta">Kuta</option>
+                            <option value="Mandalika">Mandalika</option>
+                            <option value="Tanjung">Tanjung</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-1">
+                        <button
+                            class="w-full p-3 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition duration-200 shadow-md flex items-center justify-center">
+                            <!-- Search Icon Placeholder -->
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg> Search
+                        </button>
+                    </div>
+
+                    <div class="md:col-span-1 flex items-center justify-center md:justify-end mt-2 md:mt-0">
+                        <button class="text-sm text-gray-500 hover:text-emerald-600 transition duration-150">
+                            Clear all filters
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center text-sm text-gray-500 mt-6">
+                    33 Villas found
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Property Listings Section -->
+        <div class="pt-24 pb-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- STATIC LISTINGS GRID - REPLACED JS RENDERING -->
+                <div id="listings-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Card 1: Eden Estate (Construction, Freehold) -->
+                    <div
+                        class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-[1.01] transition duration-300">
+                        <div class="relative">
+                            <img src="/im/mohd-elle-oji_NGmBI5o-unsplash.jpg" alt="Eden Estate"
+                                class="w-full h-64 object-cover"
+                                onerror="this.src='https://placehold.co/400x300/ccc/333?text=Image+Not+Found'" />
+                            <div class="absolute top-3 left-3 flex space-x-2">
+                                <span
+                                    class="px-3 py-1 text-xs font-semibold text-white uppercase rounded-full bg-black bg-opacity-70 backdrop-blur-sm">CONSTRUCTION</span>
+                                <span
+                                    class="px-3 py-1 text-xs font-semibold text-white uppercase rounded-full bg-black bg-opacity-70 backdrop-blur-sm">FREEHOLD</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-sm text-gray-500 mb-1">From US$ 239,000</p>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 truncate">Eden Estate</h3>
+                            <p class="text-sm text-gray-600 flex items-center mb-1">
+                                <span class="w-4 h-4 mr-1.5 text-emerald-600">🛏️</span>
+                                3 bedrooms
+                            </p>
+                            <p class="text-sm text-gray-600 flex items-center">
+                                <span class="w-4 h-4 mr-1.5 text-emerald-600">📍</span>
+                                Central Kuta
+                            </p>
+                            <div class="mt-4 text-center">
+                                <!-- UPDATED LINK -->
+                                <a href="edenestate.html" class="text-sm text-emerald-600 font-semibold hover:text-emerald-800 transition duration-150">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Monica Villa (Off-Plan, Leasehold) -->
+                    <div
+                        class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-[1.01] transition duration-300">
+                        <div class="relative">
+                            <img src="/im/premium_photo-1681922761659-07483f67b6c7.avif" alt="Monica Villa"
+                                class="w-full h-64 object-cover"
+                                onerror="this.src='https://placehold.co/400x300/ccc/333?text=Image+Not+Found'" />
+                            <div class="absolute top-3 left-3 flex space-x-2">
+                                <span
+                                    class="px-3 py-1 text-xs font-semibold text-white uppercase rounded-full bg-black bg-opacity-70 backdrop-blur-sm">OFF-PLAN</span>
+                                <span
+                                    class="px-3 py-1 text-xs font-semibold text-white uppercase rounded-full bg-black bg-opacity-70 backdrop-blur-sm">LEASEHOLD</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-sm text-gray-500 mb-1">From US$ 92,000</p>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 truncate">Monica Villa</h3>
+                            <p class="text-sm text-gray-600 flex items-center mb-1">
+                                <span class="w-4 h-4 mr-1.5 text-emerald-600">🛏️</span>
+                                1 bedroom
+                            </p>
+                            <p class="text-sm text-gray-600 flex items-center">
+                                <span class="w-4 h-4 mr-1.5 text-emerald-600">📍</span>
+                                Central Kuta
+                            </p>
+                            
+                            <div class="mt-4 text-center">
+                                
+                                     <div class="mt-4 text-center">
+                                <!-- UPDATED LINK -->
+                                <a href="monica.html" class="text-sm text-emerald-600 font-semibold hover:text-emerald-800 transition duration-150">
+                                    Read More
+                                </a>
+                            </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Atalaya Villas (Construction, Leasehold) -->
+                    <div
+                        class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-[1.01] transition duration-300">
+                        <div class="relative">
+                            <img src="/im/hugh-whyte-xQ8er7S8auo-unsplash.jpg" alt="Atalaya Villas"
+                                class="w-full h-64 object-cover"
+                                onerror="this.src='https://placehold.co/400x300/ccc/333?text=Image+Not+Found'" />
+                            <div class="absolute top-3 left-3 flex space-x-2">
+                                <span
+                                    class="px-3 py-1 text-xs font-semibold text-white uppercase rounded-full bg-black bg-opacity-70 backdrop-blur-sm">CONSTRUCTION</span>
+                                <span
+                                    class="px-3 py-1 text-xs font-semibold text-white uppercase rounded-full bg-black bg-opacity-70 backdrop-blur-sm">LEASEHOLD</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-sm text-gray-500 mb-1">From US$ 189,000</p>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 truncate">Atalaya Villas</h3>
+                            <p class="text-sm text-gray-600 flex items-center mb-1">
+                                <span class="w-4 h-4 mr-1.5 text-emerald-600">🛏️</span>
+                                1 & 2 bedrooms
+                            </p>
+                            <p class="text-sm text-gray-600 flex items-center">
+                                <span class="w-4 h-4 mr-1.5 text-emerald-600">📍</span>
+                                Kuta Ocean View
+                            </p>
+                            <div class="mt-4 text-center">
+                                 <div class="mt-4 text-center">
+                                <!-- UPDATED LINK -->
+                                <a href="atalaya.html" class="text-sm text-emerald-600 font-semibold hover:text-emerald-800 transition duration-150">
+                                    Read More
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Bespoke Section (Text Left, Image Right) -->
+        <div class="py-20 bg-emerald-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Content -->
+                    <div>
+                        <h2 class="text-4xl font-extrabold text-gray-900 mb-6">
+                            Bespoke Land and Properties <br class="hidden md:inline" /> for Sale in Lombok
+                        </h2>
+                        <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                            At SeaScape, we view every Real Estate project as an opportunity to facilitate the seaside
+                            escape our clients are looking for. Whether you're seeking a turnkey project for high-return
+                            investments or a beachfront plot of land in South Lombok to design your dream villa, we
+                            tailor our approach to meet your unique needs.
+                        </p>
+                        <button
+                            class="px-8 py-3 bg-white-700 text-white font-bold rounded-lg shadow-xl hover:bg-white-800 transition duration-300">
+                             <a href="villa.html" class="text-sm text-emerald-600 font-semibold hover:text-emerald-800 transition duration-150">
+                                    Vist Our Villas
+                                </a>
+                    </div>
+
+                    <!-- Right Image -->
+                    <div class="rounded-xl shadow-2xl overflow-hidden">
+                        <img src="/im/jack-lajoie-2RL1CSvoVCo-unsplash.jpg" alt="Bespoke Luxury Villa"
+                            class="w-full h-auto object-cover" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Villas and Land Showcase (Two image columns) -->
+        <div class="relative py-24 bg-cover bg-center parallax-bg"
+            style="background-image: url('/im/pexels-deeanacreates-2565222.jpg');">
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+            <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-extrabold text-white mb-6 drop-shadow-lg">
+                    Explore Our Villas and Land for Sale
+                </h2>
+                <p class="text-lg text-white mb-12 leading-relaxed drop-shadow-md">
+                    Discover our curated selection of luxury villas and prime land parcels in South Lombok, each
+                    offering unique opportunities for investment and lifestyle.
+                </p>
+            </div>
+        </div>
+        <div class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-xl group">
+                        <img src="/im/premium_photo-1682377521697-bc598b52b08a.avif" alt="Villas for Sale"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end p-6">
+                            <h3 class="text-2xl font-bold text-white drop-shadow">VILLAS FOR SALE</h3>
+                        </div>
+                    </div>
+                    <div class="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-xl group">
+                        <img src="/im/pexels-pixabay-261101.jpg" alt="Land for Sale"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end p-6">
+                            <h3 class="text-2xl font-bold text-white drop-shadow">LAND FOR SALE</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 5. Map Search Section -->
+        <div class="relative py-24 bg-cover bg-center parallax-bg"
+            style="background-image: url('/im/pexels-deeanacreates-2565222.jpg');">
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+            <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-extrabold text-white mb-6 drop-shadow-lg">
+                    Our Villas Locations at a Glance
+                </h2>
+                <p class="text-lg text-white mb-12 leading-relaxed drop-shadow-md">
+                    Explore our interactive map to find the perfect villa or land parcel in South Lombok that suits
+                    your investment goals and lifestyle desires.
+                </p>
+
+
+                <div class="py-20 bg-emerald-50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <!-- Left Image with Map Overlay -->
+                            <div class="relative rounded-xl shadow-2xl overflow-hidden h-[450px]">
+                                <img src="/im/pexels-michael-block-1691617-3225531.jpg" alt="Property Interior"
+                                    class="w-full h-full object-cover" />
+                                <!-- Mock Map Overlay -->
+
+                            </div>
+
+                            <!-- Right Content -->
+                            <div>
+                                <h2 class="text-4xl font-extrabold text-gray-900 mb-6">
+                                    One Map. One Search.
+                                </h2>
+                                <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                                    With a seamless search experience, Sea Scape has developed an interactive map
+                                    showcasing all
+                                    our properties and land in South Lombok. An accessible tool to explore investment
+                                    opportunities, freehold land, or luxury villas in Lombok.
+                                </p>
+                                <button 
+                                    class="px-8 py-3 border-2 border-emerald-600 text-emerald-600 font-bold rounded-lg hover:bg-emerald-100 transition duration-300 flex items-center">
+                                    <a href="map.html" class="font-bold">
+                                        Explore Us on the Map   </a> 
+                                    <!-- External Link Icon Placeholder -->
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m-6-6L10 10">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Market Insight Section (Text Right, Image Left) -->
+        <div class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Image (Rice Paddies) -->
+                    <div class="rounded-xl shadow-2xl overflow-hidden order-last lg:order-first">
+                        <img src="/im/pexels-nuno-obey-34504-128303.jpg" alt="Lombok Market Paddies"
+                            class="w-full h-auto object-cover" />
+                    </div>
+
+                    <!-- Right Content -->
+                    <div class="order-first lg:order-last">
+                        <p class="text-emerald-600 font-semibold uppercase tracking-wider mb-2">LOMBOK</p>
+                        <h2 class="text-4xl font-extrabold text-gray-900 mb-6">
+                            A Booming Market
+                        </h2>
+                        <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                            Lombok has become the go-to island for those looking to invest in Indonesia but seeking the
+                            authentic charm of a tropical paradise. With a thriving tourism and robust industry,
+                            investment opportunities abound from around the globe.
+                        </p>
+                        <button
+                            class="px-8 py-3 bg-gray-700 text-white font-bold rounded-lg shadow-xl hover:bg-gray-800 transition duration-300">
+                            READ MORE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Newsletter Signup Section (Parallax) -->
+        <div class="relative py-64 bg-cover bg-center parallax-bg"
+            style="background-image: url('/im/pexels-pixabay-261101.jpg');">
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+            <div class="relative z-10 max-w-2xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-extrabold text-white mb-6">
+                    Sign up to receive news and updates!
+                </h2>
+                <form class="space-y-4">
+                    <input type="email" placeholder="Email*" required
+                        class="w-full p-4 border-2 border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:ring-emerald-600 focus:border-emerald-600" />
+                    <button type="submit"
+                        class="w-full p-4 bg-emerald-600 text-white font-bold text-lg rounded-lg hover:bg-emerald-700 transition duration-300 shadow-xl">
+                        Sign Up
+                    </button>
+                    <div class="flex items-center justify-center pt-2">
+                        <input type="checkbox" id="marketing_optin" checked
+                            class="w-4 h-4 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500 mr-2" />
+                        <label for="marketing_optin" class="text-sm text-white opacity-80">
+                            I want to sign up to your mailing list
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 8. Testimonial Section (Parallax) -->
+        <div class="relative py-64 bg-cover bg-center parallax-bg"
+            style="background-image: url('/im/pexels-asadphoto-3155666.jpg');">
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+            <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+                <blockquote
+                    class="text-xl sm:text-2xl italic font-medium text-white mb-8 leading-relaxed drop-shadow-lg">
+                    "I had a fantastic experience purchasing a property in Lombok, and it was made so much easier with
+                    the help of the Sea Scape team. Their professionalism and expertise truly made the process smooth
+                    and hassle-free!"
+                </blockquote>
+                <p class="text-2xl text-white font-serif tracking-wide drop-shadow-md">
+                    — Sinta H.
+                </p>
+            </div>
+            <br>
+            <div class="relative z-10 text-center text-white max-w-7xl mx-auto px-4">
+                <div class="flex flex-col items-center">
+                    <!-- Logo in Footer -->
+                    <div class="flex flex-col items-center mb-6">
+                        <p class="text-xl logo-serif tracking-widest opacity-80">SEA</p>
+                        <h1 class="text-4xl logo-sans font-extrabold tracking-widest">SCAPE</h1>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center space-x-4 mb-4 text-sm text-gray-400">
+                        <p>+62 813-8182-4572</p>
+                        <p class="hidden sm:inline">|</p>
+                        <p>contact@seascaperesort.com</p>
+                    </div>
+
+                    <div class="flex justify-center space-x-6 text-xs text-gray-500 mt-4">
+                        <a href="#" class="hover:text-white transition">© 2025 Sea Scape</a>
+                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        // --- MOCK DATA ---
+
+
+        const mockListings = [
+            { id: 1, name: 'Eden Estate', priceUSD: 239000, beds: 3, location: 'Central Ku', tags: ['CONSTRUCTION', 'FREEHOLD'], imageUrl: 'https://placehold.co/400x300/1e4a8a/ffffff?text=Eden+Estate' },
+            { id: 2, name: 'Monica Villa', priceUSD: 92000, beds: 1, location: 'Central Kuta', tags: ['OFF-PLAN', 'LEASEHOLD'], imageUrl: 'https://placehold.co/400x300/059669/ffffff?text=Monica+Villa' },
+            { id: 3, name: 'Atalaya Villas', priceUSD: 189000, beds: 1, location: 'Kuta Ocean View', tags: ['CONSTRUCTION', 'LEASEHOLD'], imageUrl: 'https://placehold.co/400x300/b91c1c/ffffff?text=Atalaya+Villas' },
+        ];
+
+        // --- UTILITIES ---
+        const formatCurrency = (amount) =>
+            new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(amount);
+
+
+
+        /**
+         * Handles the tab switching logic for the search bar.
+         * @param {string} newTab - The tab name ('Villas' or 'Lands').
+         */
+        function handleTabChange(newTab) {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                const tab = button.getAttribute('data-tab');
+                if (tab === newTab) {
+                    button.classList.add('text-emerald-600', 'border-b-4', 'border-emerald-600');
+                    button.classList.remove('text-gray-500', 'hover:text-gray-700');
+                } else {
+                    button.classList.remove('text-emerald-600', 'border-b-4', 'border-emerald-600');
+                    button.classList.add('text-gray-500', 'hover:text-gray-700');
+                }
+            });
+            // You would run a new search here based on the tab selection
+            // For this mock, we just update the appearance.
+        }
+
+        /**
+         * Initialization function to run when the page loads.
+         */
+        function init() {
+            renderListings();
+
+            // Set up event listeners for Search Bar tabs
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    handleTabChange(button.getAttribute('data-tab'));
+                });
+            });
+
+            // Ensure the initial state of the tabs is set
+            handleTabChange('Villas');
+        }
+
+        // Run initialization once the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', init);
+
+    </script>
+</body>
+
+</html>

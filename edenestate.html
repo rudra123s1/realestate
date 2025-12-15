@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eden Estate - Property Detail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .logo-serif {
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        }
+
+        .logo-sans {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+
+        /* Modal Backdrop Style - UPDATED */
+        .modal-backdrop {
+            /* Changed opacity to 0.8 for a lighter feel */
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Added blur effect */
+            backdrop-filter: blur(8px);
+            /* Increased blur slightly for better effect */
+        }
+
+        /* Modal content box styling */
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+
+<body class="font-inter antialiased bg-gray-50">
+
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-white shadow-md">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+                <a href="index.html" class="flex items-center text-gray-800 hover:text-emerald-600 transition">
+                    <svg class="w-6 h-6 mr-2 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    Back to Listings
+                </a>
+                <div class="flex flex-col items-center">
+                    <p class="text-xl logo-serif tracking-widest opacity-80 text-gray-800">SEA</p>
+                    <h1 class="text-4xl logo-sans font-extrabold tracking-widest text-emerald-600">SCAPE</h1>
+                </div>
+                <a href="index.html#search-bar"
+                    class="px-5 py-2 text-sm font-bold text-white uppercase rounded-full bg-emerald-600 hover:bg-emerald-700 transition duration-150 shadow-lg">
+                    Inquire
+                </a>
+            </div>
+        </header>
+
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl shadow-2xl p-6 md:p-10">
+
+                <!-- Title & Price -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b pb-4">
+                    <div>
+                        <h2 class="text-4xl font-extrabold text-gray-900">Eden Estate</h2>
+                        <p class="text-xl text-gray-600 flex items-center mt-2">
+                            <span class="w-5 h-5 mr-2 text-emerald-600">📍</span> Centeral Kuta 
+                        </p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-right">
+                        <p class="text-5xl font-bold text-emerald-700">US$ 239,000</p>
+                        <div class="flex space-x-2 mt-2 justify-end">
+                            <span
+                                class="px-3 py-1 text-xs font-semibold text-white uppercase rounded-full bg-black bg-opacity-70">CONSTRUCTION</span>
+                            <span
+                                class="px-3 py-1 text-xs font-semibold text-white uppercase rounded-full bg-black bg-opacity-70">FREEHOLD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Gallery -->
+                <div class="mb-8 rounded-xl overflow-hidden shadow-lg">
+                    <!-- Main Image with Click Handler -->
+                    <img src="/im/pexels-betchtyblades-2480608.jpg" alt="Eden Estate Main Image"
+                        class="w-full h-auto object-cover max-h-[600px] cursor-pointer hover:opacity-90 transition duration-200"
+                        onclick="openModal(0)">
+                    <!-- Thumbnails with Click Handlers -->
+                    <div class="grid grid-cols-3 gap-2 p-2 bg-gray-100">
+                        <img src="/im/luxury-pool-villa-spectacular-contemporary-design-digital-art-real-estate-home-house-property-ge.jpg"
+                            alt="Pool"
+                            class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-75 transition duration-200"
+                            onclick="openModal(1)">
+                        <img src="/im/hugh-whyte-xQ8er7S8auo-unsplash.jpg" alt="Interior"
+                            class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-75 transition duration-200"
+                            onclick="openModal(2)">
+                        <img src="/im/op.jpg" alt="Floorplan"
+                            class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-75 transition duration-200"
+                            onclick="openModal(3)">
+                    </div>
+                </div>
+
+                <!-- Details Grid and Contact -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                    <!-- Left Column: Specs & Features -->
+                    <div class="lg:col-span-2 space-y-8">
+
+                        <div class="border p-6 rounded-xl shadow-inner bg-emerald-50">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Property Specifications</h3>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                                <div class="p-3 bg-white rounded-lg shadow-sm">
+                                    <span class="text-2xl font-bold text-emerald-600 block">3</span>
+                                    <span class="text-sm text-gray-600">Bedrooms</span>
+                                </div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">
+                                    <span class="text-2xl font-bold text-emerald-600 block">3</span>
+                                    <span class="text-sm text-gray-600">Bathrooms</span>
+                                </div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">
+                                    <span class="text-2xl font-bold text-emerald-600 block">160 $m^2$</span>
+                                    <span class="text-sm text-gray-600">Built Area</span>
+                                </div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">
+                                    <span class="text-2xl font-bold text-emerald-600 block">300 $m^2$</span>
+                                    <span class="text-sm text-gray-600">Land Area</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Detailed Description</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                This stunning Atalaya Villas is currently under construction, offering a rare
+                                opportunity for a custom-built, freehold investment in the highly sought-after Central
+                                Kuta area. The design maximizes natural light and features premium materials throughout.
+                            </p>
+                            <p class="text-gray-700 leading-relaxed">
+                                The expansive open-plan living area flows seamlessly into the private pool terrace.
+                                Ideal for investors seeking high rental yield or a luxurious permanent residence.
+                                Completion expected Q3 2026.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Key Amenities</h3>
+                            <ul class="grid grid-cols-2 gap-y-2 text-gray-700">
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">✓</span> Private Pool
+                                </li>
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">✓</span> Modern
+                                    Kitchen Appliances</li>
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">✓</span> Gated
+                                    Security Access</li>
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">✓</span> Fully
+                                    Air-Conditioned</li>
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">✓</span> Dedicated
+                                    Parking</li>
+                                <li class="flex items-center"><span class="text-emerald-500 mr-2">✓</span> Near Tourist
+                                    Attractions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Contact Agent -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-gray-100 p-6 rounded-xl shadow-lg border-t-4 border-emerald-500 sticky top-4">
+                            <h3 class="text-2xl font-bold text-emerald-800 mb-4">Inquire About This Property</h3>
+                            <p class="text-gray-600 mb-4">Contact our specialist for floor plans and construction
+                                updates.</p>
+
+                            <form class="space-y-4">
+                                <input type="text" placeholder="Your Full Name"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:border-emerald-500">
+                                <input type="email" placeholder="Email Address"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:border-emerald-500">
+                                <textarea placeholder="Message (e.g., Request a viewing)" rows="3"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:border-emerald-500">I am interested in Eden Estate and would like more details.</textarea>
+                                <button type="submit"
+                                    class="w-full bg-emerald-600 text-white py-3 rounded-lg hover:bg-emerald-700 font-bold shadow-lg transition duration-200">
+                                    Send Inquiry
+                                </button>
+                            </form>
+
+                            <p class="text-center text-sm text-gray-500 mt-4">Or call us directly at: **+62
+                                813-8182-4572**</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL LIGHTBOX STRUCTURE -->
+    <div id="imageModal" class="fixed inset-0 hidden modal-backdrop z-[9999] justify-center items-center">
+        <div class="relative modal-content flex justify-center items-center">
+
+            <!-- Close Button -->
+            <button class="absolute top-4 right-4 text-white text-5xl hover:text-emerald-400 transition duration-200"
+                onclick="closeModal()">
+                &times;
+            </button>
+
+            <!-- Image Container -->
+            <img id="modalImage" src="/im/luxurious-villa-with-modern-architectural-design.jpg" alt="Property Gallery"
+                class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl">
+
+            <!-- Previous Button -->
+            <button
+                class="absolute left-4 text-white text-5xl p-2 rounded-full bg-black bg-opacity-30 hover:bg-opacity-50 transition"
+                onclick="changeSlide(-1)">
+                &#10094;
+            </button>
+
+            <!-- Next Button -->
+            <button
+                class="absolute right-4 text-white text-5xl p-2 rounded-full bg-black bg-opacity-30 hover:bg-opacity-50 transition"
+                onclick="changeSlide(1)">
+                &#10095;
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        let currentSlideIndex = 0;
+
+        // Image URLs for the gallery
+        const galleryImages = [
+            '/im/luxurious-villa-with-modern-architectural-design.jpg',
+            '/im/luxurious-villa-with-modern-architectural-design.jpg',
+            '/im/luxurious-villa-with-modern-architectural-design.jpg',
+            '/im/luxurious-villa-with-modern-architectural-design.jpg',
+            '/im/luxurious-villa-with-modern-architectural-design.jpg'
+        ];
+
+        function openModal(index) {
+            currentSlideIndex = index;
+            modalImage.src = galleryImages[currentSlideIndex];
+            imageModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            imageModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore background scrolling
+        }
+
+        function changeSlide(n) {
+            currentSlideIndex += n;
+            if (currentSlideIndex >= galleryImages.length) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = galleryImages.length - 1;
+            }
+            modalImage.src = galleryImages[currentSlideIndex];
+        }
+
+        // Close modal on Escape key press
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape" && imageModal.style.display === 'flex') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

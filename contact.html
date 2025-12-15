@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Legacy | EcoHome Estates</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- PROFESSIONAL REAL ESTATE CSS --- */
+
+        :root {
+            /* A rich, trustworthy color palette */
+            --deep-green: #0A3D32;
+            /* Dark Forest Green - Primary Trust Color */
+            --rich-blue: #1B262C;
+            /* Midnight Blue - Secondary Backgrounds */
+            --gold: #CBA135;
+            /* Burnished Gold - Accents, Awards, CTA */
+            --light-gold: #EEDCA7;
+            /* Lighter gold for gradients */
+            --off-white: #F5F7F6;
+            /* Clean background */
+            --text-dark: #2C3531;
+            /* Main text color */
+            --text-light: #FFFFFF;
+
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* --- General Reset & Typography --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- Reusable Components --- */
+        .section {
+            padding: 5rem 5%;
+        }
+
+        .bg-dark {
+            background-color: var(--rich-blue);
+            color: var(--text-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .sub-title {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--deep-green);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Add a small gold underline to titles */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #B48A20);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px -10px rgba(203, 161, 53, 0.5);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -10px rgba(203, 161, 53, 0.7);
+        }
+
+        /* --- Navigation (Simple Version) --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--deep-green);
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .nav-links a.active {
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        /* --- 1. Professional Hero Header --- */
+        .page-hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover fixed no-repeat;
+        }
+
+        /* Dark blue overlay for professionalism */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(27, 38, 44, 0.9), rgba(10, 61, 50, 0.8));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h4 {
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* --- 2. Floating Stats Bar --- */
+        .stats-container {
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            padding: 0 5%;
+        }
+
+        .stats-bar {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border-top: 4px solid var(--gold);
+        }
+
+        .stat-item {
+            flex: 1;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-right: 1px solid #eee;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-item:hover {
+            background: #fcfcfc;
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--deep-green);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        /* --- 3. Services Grid --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+            top: 0;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            top: -10px;
+            box-shadow: var(--shadow-lg);
+            border-color: var(--gold);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: var(--off-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--deep-green);
+            transition: 0.3s;
+        }
+
+        .service-card:hover .icon-box {
+            background: var(--gold);
+            color: white;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--deep-green);
+        }
+
+        /* --- 4. Awards Section (Metallic Look) --- */
+        .awards-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .award-badge {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            padding: 5px;
+            /* Gradients for a metallic gold look */
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge-inner {
+            width: 100%;
+            height: 100%;
+            background: var(--rich-blue);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .badge-inner i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .award-year {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .award-title {
+            font-size: 0.9rem;
+            line-height: 1.3;
+            margin-top: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- 5. Team Section (Premium Cards) --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-img-box {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .team-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .team-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Overlay that appears on hover */
+        .team-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(to top, var(--deep-green), transparent);
+            transition: 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+        }
+
+        .team-card:hover .team-overlay {
+            height: 50%;
+            opacity: 1;
+        }
+
+        .social-icons i {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .social-icons i:hover {
+            color: var(--gold);
+        }
+
+        .team-info {
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Gold line above names */
+        .team-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .team-info h3 {
+            font-size: 1.4rem;
+            color: var(--deep-green);
+            margin-bottom: 5px;
+        }
+
+        .team-role {
+            display: block;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+        }
+
+        /* --- 6. Reviews Section (Dark Luxurious) --- */
+        .reviews-section {
+            background: linear-gradient(rgba(10, 61, 50, 0.9), rgba(27, 38, 44, 0.9)), url('https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            color: white;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.05);
+            /* Glassmorphism effect */
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .review-quote {
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.5;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .review-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .review-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid var(--gold);
+        }
+
+        .review-author h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .stars {
+            color: var(--gold);
+        }
+
+        /* --- 7. UPDATED Professional Feedback Form --- */
+        .feedback-container {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            min-height: 600px;
+        }
+
+        /* Left Side - Visuals & Logo */
+        .feedback-left-visual {
+            flex: 1;
+            position: relative;
+            min-width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: white;
+            overflow: hidden;
+        }
+
+        .feedback-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transition: 5s ease;
+        }
+
+        .feedback-left-visual:hover .feedback-bg-img {
+            transform: scale(1.1);
+        }
+
+        /* The Logo Overlay placed at the top left */
+        .feedback-logo-overlay {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 10;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feedback-logo-overlay i {
+            color: var(--gold);
+        }
+
+        .feedback-logo-overlay span {
+            color: var(--gold);
+        }
+
+        /* Visual Content at bottom */
+        .visual-content {
+            position: relative;
+            z-index: 2;
+            padding: 4rem 3rem;
+            /* Gradient fade upwards from bottom */
+            background: linear-gradient(to top, var(--deep-green) 20%, transparent);
+        }
+
+        .visual-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-mini {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Right Side - The Form */
+        .feedback-right-form {
+            flex: 1.2;
+            padding: 4rem;
+            background: white;
+        }
+
+        .feedback-right-form h2 {
+            color: var(--deep-green);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Modern Form Input Styling */
+        .pro-form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            background: var(--off-white);
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            transition: 0.3s;
+        }
+
+        .pro-form-group:focus-within {
+            border-color: var(--gold);
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-icon {
+            padding: 0 15px;
+            color: #999;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .pro-form-group:focus-within .form-icon {
+            color: var(--gold);
+        }
+
+        .pro-input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 15px 15px 15px 0;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            outline: none;
+        }
+
+        textarea.pro-input {
+            resize: vertical;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--rich-blue);
+            padding: 3rem 5%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 5rem;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 900px) {
+            .stats-bar {
+                flex-wrap: wrap;
+            }
+
+            .stat-item {
+                flex: 1 1 50%;
+                border-bottom: 1px solid #eee;
+            }
+
+            .feedback-container {
+                flex-direction: column;
+            }
+
+            .feedback-left-visual {
+                min-height: 300px;
+            }
+
+            .feedback-right-form {
+                padding: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* --- Scroll Animation Classes (Keep existing JS active) --- */
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- PASTE THIS AT THE BOTTOM OF STYLE-PRO.CSS --- */
+        .hidden {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">EcoHome<span>Estates</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="map.html">Sea Maps</a></li>
+            <li><a href="#" class="active">Our Team & Reviews</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content hidden">
+            <h4>ESTABLISHED 2010</h4>
+            <h1>Excellence in Real Estate</h1>
+            <p>A decade of trust, integrity, and award-winning service in premium properties.</p>
+        </div>
+    </header>
+
+    <div class="stats-container hidden">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-hourglass-half"></i></div>
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-home"></i></div>
+                <div class="stat-number">2,400+</div>
+                <div class="stat-label">Properties Sold</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-smile"></i></div>
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Positive Reviews</div>
+            </div>
+            <div class="stat-item" style="border-right: none;">
+                <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                <div class="stat-number">12</div>
+                <div class="stat-label">Industry Awards</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section" style="padding-top: 6rem;">
+        <div class="container">
+            <div class="section-header hidden">
+                <span class="sub-title">WHAT WE DO</span>
+                <h2 class="section-title">Premium Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card hidden">
+                    <div class="icon-box"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3>Property Sales</h3>
+                    <p>Expert guidance in buying and selling luxury eco-friendly properties with maximum ROI.</p>
+                </div>
+                <div class="service-card hidden">
+                    <div class="icon-box"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Legal Harmony</h3>
+                    <p>We handle all complex paperwork, deeds, and registration processes hassle-free.</p>
+                </div>
+                <div class="service-card hidden">
+                    <div class="icon-box"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Investment Consulting</h3>
+                    <p>Strategic data-driven advice for investors looking for high growth markets.</p>
+                </div>
+                <div class="service-card hidden">
+                    <div class="icon-box"><i class="fas fa-key"></i></div>
+                    <h3>Asset Management</h3>
+                    <p>End-to-end maintenance, tenant management, and rent collection services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-dark">
+        <div class="container" style="text-align: center; color: white;">
+            <h2 class="section-title hidden" style="color: var(--gold);">Our Recognition</h2>
+            <p class="hidden" style="margin-bottom: 3rem; color: #ccc;">Recognized consistently as the region's leading
+                Trusted Property Dealer.</p>
+            <div class="awards-grid">
+                <div class="award-badge hidden">
+                    <div class="badge-inner">
+                        <i class="fas fa-trophy"></i>
+                        <div class="award-year">2023</div>
+                        <div class="award-title">Best Property<br>Dealer</div>
+                    </div>
+                </div>
+                <div class="award-badge hidden" style="transition-delay: 0.2s;">
+                    <div class="badge-inner">
+                        <i class="fas fa-medal"></i>
+                        <div class="award-year">2024</div>
+                        <div class="award-title">Excellence in<br>Trust</div>
+                    </div>
+                </div>
+                <div class="award-badge hidden" style="transition-delay: 0.4s;">
+                    <div class="badge-inner">
+                        <i class="fas fa-certificate"></i>
+                        <div class="award-year">Certified</div>
+                        <div class="award-title">Top Eco<br>Developer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header hidden">
+                <span class="sub-title">THE EXPERTS</span>
+                <h2 class="section-title">Meet Our Leadership</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card hidden">
+                    <div class="team-img-box">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="CEO">
+                        <div class="team-overlay">
+                            <div class="social-icons">
+                                <i class="fab fa-linkedin-in"></i>
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Rohan Mehra</h3>
+                        <span class="team-role">Founder & CEO</span>
+                        <p>20 years experience in luxury land development.</p>
+                    </div>
+                </div>
+                <div class="team-card hidden">
+                    <div class="team-img-box">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sales Head">
+                        <div class="team-overlay">
+                            <div class="social-icons">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Priya Sharma</h3>
+                        <span class="team-role">Senior Sales Head</span>
+                        <p>Expert in high-value deal negotiation.</p>
+                    </div>
+                </div>
+                <div class="team-card hidden">
+                    <div class="team-img-box">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Legal">
+                        <div class="team-overlay">
+                            <div class="social-icons">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Amit Verma</h3>
+                        <span class="team-role">Legal Advisor</span>
+                        <p>Ensuring 100% compliant transfers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section reviews-section">
+        <div class="container">
+            <div class="section-header hidden">
+                <span class="sub-title" style="color: var(--gold);">TESTIMONIALS</span>
+                <h2 class="section-title" style="color: white;">Client Success Stories</h2>
+            </div>
+            <div class="review-grid">
+                <div class="review-card hidden">
+                    <div class="review-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="review-text">"Incredibly professional. They handled all the legal paperwork for my villa
+                        purchase smoothly. Highly recommended for peace of mind!"</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="client">
+                        <div>
+                            <h4>Rahul Singh</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card hidden" style="transition-delay: 0.2s;">
+                    <div class="review-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="review-text">"Honest and transparent dealers. They showed me exactly what I wanted and
+                        didn't waste my time. Best service in the city."</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="client">
+                        <div>
+                            <h4>Anjali Desai</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="feedback">
+        <div class="container">
+            <div class="feedback-container hidden">
+                <div class="feedback-left-visual">
+                    <div class="feedback-logo-overlay">
+                        <i class="fas fa-leaf"></i> EcoHome<span>Estates</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Happy Homeowners" class="feedback-bg-img">
+
+                    <div class="visual-content">
+                        <h3>We Value Your Opinion</h3>
+                        <p>Your feedback helps shape the future of sustainable living. Connect with us today.</p>
+                        <div class="contact-mini">
+                            <p><i class="fas fa-phone-alt" style="color:var(--gold)"></i> +91 98765 43210</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-right-form">
+                    <h2>Share Your Details</h2>
+                    <p style="margin-bottom: 2rem; color: #666;">Please fill the form below for inquiries or feedback.
+                    </p>
+                    <form>
+                        <div class="pro-form-group">
+                            <i class="fas fa-user form-icon"></i>
+                            <input type="text" class="pro-input" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="pro-form-group">
+                            <i class="fas fa-envelope form-icon"></i>
+                            <input type="email" class="pro-input" placeholder="Email Address" required>
+                        </div>
+                        <div class="pro-form-group">
+                            <i class="fas fa-phone form-icon"></i>
+                            <input type="tel" class="pro-input" placeholder="Phone Number" required>
+                        </div>
+                        <div class="pro-form-group">
+                            <i class="fas fa-comment-alt form-icon"
+                                style="align-self: flex-start; margin-top: 15px;"></i>
+                            <textarea class="pro-input" rows="4" placeholder="Your Feedback or Query..."
+                                required></textarea>
+                        </div>
+                        <button type="button" class="btn-gold">Submit Information</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="logo" style="color: white;">EcoHome<span style="color:var(--gold)">Estates</span></div>
+            <p>&copy; 2025 Leading Property Dealers. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

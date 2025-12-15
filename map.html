@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Tropical Maps | EcoEstates</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* --- Styles remain the same as before --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 3%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 100;
+        }
+
+        .map-brand { display: flex; align-items: center; gap: 10px; }
+        .map-icon-box {
+            background: linear-gradient(135deg, #00B4DB, #0083B0);
+            color: white; width: 45px; height: 45px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+        }
+        .map-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2rem; color: #006080; text-transform: uppercase; line-height: 1; }
+        .map-title span { display: block; font-size: 0.7rem; color: #00B4DB; font-weight: 600; letter-spacing: 2px; }
+
+        .eco-stylish {
+            font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 2rem;
+            background: linear-gradient(to right, #11998e, #38ef7d); 
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+
+        .map-wrapper { position: relative; width: 100%; height: calc(100vh - 80px); overflow: hidden; background-color: #f1f3f4; }
+        .google-map-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        
+        /* IMPORTANT: This ensures the map fills the screen */
+        .google-map-bg iframe { width: 100%; height: 100%; border: none; filter: contrast(105%) saturate(110%); }
+
+        .floating-sidebar {
+            position: absolute; top: 20px; left: 20px; width: 380px; height: calc(100% - 40px);
+            background: #ffffff; z-index: 10; border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; overflow: hidden;
+        }
+
+        .search-area { padding: 20px; background: #fff; border-bottom: 1px solid #f0f0f0; }
+        .search-box { display: flex; align-items: center; background: #f8f9fa; border-radius: 12px; padding: 12px 15px; }
+        .search-box input { border: none; background: transparent; outline: none; flex: 1; margin-left: 10px; font-size: 1rem; }
+
+        .filter-chips { display: flex; gap: 10px; padding: 15px 20px; overflow-x: auto; border-bottom: 1px solid #f0f0f0; }
+        .chip { background: #fff; border: 1px solid #e0e0e0; border-radius: 30px; padding: 6px 14px; font-size: 0.8rem; cursor: pointer; }
+        .chip.active { background: #e0f7fa; color: #0083B0; border-color: transparent; }
+
+        .results-list { flex: 1; overflow-y: auto; padding: 10px; }
+        .location-card { display: flex; gap: 15px; padding: 15px; margin: 5px 10px; border-radius: 12px; cursor: pointer; transition: 0.2s; }
+        .location-card:hover { background-color: #f0f9ff; }
+        .loc-img { width: 80px; height: 80px; border-radius: 10px; object-fit: cover; }
+        .nav-pill { display: inline-flex; align-items: center; gap: 5px; background-color: #e0f2f1; color: #00695c; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; border: none; cursor: pointer; margin-top: 5px; }
+        .nav-pill:hover { background-color: #00695c; color: white; }
+
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 10px; }
+            .floating-sidebar { top: auto; bottom: 0; left: 0; width: 100%; height: 55vh; border-radius: 25px 25px 0 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="map-brand">
+            <div class="map-icon-box">🌊</div>
+            <div class="map-title">Sea Tropical<span>Maps & Nav</span></div>
+        </div>
+        <div class="eco-stylish">EcoEstates</div>
+        <div style="display: flex; gap: 20px;">
+            <a href="index.html" style="text-decoration: none; color: #555; font-weight: 600;">Home</a>
+            <a href="index.html#contact" style="text-decoration: none; color: #555; font-weight: 600;">Contact</a>
+        </div>
+    </nav>
+
+    <div class="map-wrapper">
+        <div class="floating-sidebar">
+            <div class="search-area">
+                <div class="search-box">
+                    <span class="material-icons" style="color: #00B4DB;">search</span>
+                    <input type="text" placeholder="Search tropical homes...">
+                    <span class="material-icons" style="color: #999;">tune</span>
+                </div>
+            </div>
+
+            <div class="filter-chips">
+                <div class="chip active">All Listings</div>
+                <div class="chip">Beachfront</div>
+                <div class="chip">Jungle View</div>
+                <div class="chip">Under $500k</div>
+            </div>
+
+            <div class="results-list">
+                <div class="location-card" onclick="startNavigation(25.7617, -80.1918)">
+                    <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" class="loc-img" alt="Beach House">
+                    <div class="loc-info">
+                        <h3>Palm Beach Villa</h3>
+                        <div style="color: #ffb400; font-size: 0.8rem;">★★★★★ (42)</div>
+                        <p style="font-size: 0.8rem; color: #666;">Ocean View • 4 Bed</p>
+                        <button class="nav-pill">
+                            <span class="material-icons" style="font-size:14px;">near_me</span> Navigate
+                        </button>
+                    </div>
+                </div>
+
+                <div class="location-card" onclick="startNavigation(21.3069, -157.8583)">
+                    <img src="https://images.unsplash.com/photo-1544582533-3e3a51668b37?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" class="loc-img" alt="Tropical Hut">
+                    <div class="loc-info">
+                        <h3>Lagoon Bungalow</h3>
+                        <div style="color: #ffb400; font-size: 0.8rem;">★★★★☆ (18)</div>
+                        <p style="font-size: 0.8rem; color: #666;">Private Dock • Eco</p>
+                        <button class="nav-pill">
+                            <span class="material-icons" style="font-size:14px;">near_me</span> Navigate
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="location-card" onclick="startNavigation(19.0760, 72.8777)">
+                    <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" class="loc-img" alt="House">
+                    <div class="loc-info">
+                        <h3>Coastal Paradise</h3>
+                        <div style="color: #ffb400; font-size: 0.8rem;">★★★★★ (85)</div>
+                        <p style="font-size: 0.8rem; color: #666;">Luxury • Island</p>
+                        <button class="nav-pill">
+                            <span class="material-icons" style="font-size:14px;">near_me</span> Navigate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="google-map-bg">
+            <iframe 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                scrolling="no" 
+                marginheight="0" 
+                marginwidth="0" 
+                src="https://maps.google.com/maps?q=Key+West&t=&z=13&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        function startNavigation(lat, lng) {
+            // Updated link format to ensure it opens correctly on Mobile and Desktop
+            const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Scape Realty - Tropical Properties | Find Your Sanctuary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Variables & Reset --- */
+        :root {
+            --primary-green: #4CAF50;
+            --light-green: #F1F8E9;
+            /* Slightly softer light green */
+            --dark-green: #2E7D32;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #555555;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- Navigation --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--primary-green);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 2.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-green);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Parallax effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        /* --- Shared Layouts --- */
+        .section {
+            padding: 6rem 5%;
+        }
+
+        .bg-light {
+            background-color: var(--light-green);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            position: relative;
+        }
+
+        /* --- About Us Section Styles (NEW) --- */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box h3 {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-box p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* --- Property Grid --- */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-info {
+            padding: 1.5rem;
+        }
+
+        .card-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .price {
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .details {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-outline {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--primary-green);
+            background: transparent;
+            color: var(--primary-green);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* --- Video Section (FIXED) --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        /* Strict sizing for the video element to prevent distortion */
+        .video-card video {
+            width: 100%;
+            height: 220px;
+            /* Fixed height ensures all boxes are same size */
+            object-fit: cover;
+            /* Ensures video fills the area without stretching */
+            border-radius: 10px;
+            background-color: #000;
+            /* Fallback color while loading */
+            outline: none;
+        }
+
+        .video-card h3 {
+            padding-top: 1rem;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        /* --- Dynamic Scroll Animations --- */
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem;
+            margin-top: auto;
+        }
+
+        /* --- Mobile Nav --- */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-dark);
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Sea Scape Realty-<span>Estates</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#properties">Properties</a></li>
+            <li><a href="#tours">Video Tours</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content hidden">
+            <h1>Nature Meets Luxury</h1>
+            <p>Discover sustainable living spaces designed for peace and comfort.</p>
+            <a href="#properties" class="btn">Explore Properties</a>
+        </div>
+    </header>
+
+    <section id="about" class="section bg-light">
+        <div class="container about-container">
+            <div class="about-text hidden">
+                <h2 class="section-title" style="text-align: left;">Who We Are</h2>
+                <p>At <strong>EcoHome Estates</strong>, we believe your home should be a sanctuary that harmonizes with
+                    nature. Founded in 2010, we have helped over 5,000 families find properties that prioritize
+                    sustainability without compromising on luxury.</p>
+                <p>Our mission is simple: To connect you with spaces that breathe. Whether it's a forest villa or a
+                    modern eco-apartment, we curate only the finest green living spaces.</p>
+
+                <div class="stats">
+                    <div class="stat-box">
+                        <h3>15+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>5k+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>100%</h3>
+                        <p>Eco Friendly</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image hidden">
+                <img src="/im/hero_img.webp"
+                    alt="About Us Real Estate Team">
+            </div>
+        </div>
+    </section>
+
+    <section id="properties" class="section">
+        <div class="container">
+            <h2 class="section-title hidden">Featured Properties</h2>
+            <div class="property-grid">
+                <div class="card hidden">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Modern Green House">
+                        <span class="badge">For Sale</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Forest Edge Villa</h3>
+                        <p class="price">$450,000</p>
+                        <p class="details">4 Bed • 3 Bath • 2800 sqft</p>
+                        <button class="btn-outline">View Details</button>
+                    </div>
+                </div>
+
+                <div class="card hidden">
+                    <div class="card-img">
+                        <img src="/im/pexels-deeanacreates-2565222.jpg"
+                            alt="Luxury Mansion">
+                        <span class="badge">New</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Green Valley Estate</h3>
+                        <p class="price">$1,200,000</p>
+                        <p class="details">6 Bed • 5 Bath • 5000 sqft</p>
+                        <button class="btn-outline">View Details</button>
+                    </div>
+                </div>
+
+                <div class="card hidden">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Suburban Home">
+                    </div>
+                    <div class="card-info">
+                        <h3>Sunny Side Cottage</h3>
+                        <p class="price">$320,000</p>
+                        <p class="details">3 Bed • 2 Bath • 1500 sqft</p>
+                        <button class="btn-outline">View Details</button>
+                    </div>
+                </div>
+
+                <div class="card hidden">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Modern Apartment">
+                        <span class="badge">Hot</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Eco-Loft Apartment</h3>
+                        <p class="price">$280,000</p>
+                        <p class="details">2 Bed • 2 Bath • 1200 sqft</p>
+                        <button class="btn-outline">View Details</button>
+                    </div>
+                </div>
+
+                <div class="card hidden">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Garden Home">
+                    </div>
+                    <div class="card-info">
+                        <h3>Botanic Garden House</h3>
+                        <p class="price">$550,000</p>
+                        <p class="details">4 Bed • 3 Bath • 3000 sqft</p>
+                        <button class="btn-outline">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tours" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title hidden">Virtual Video Tours</h2>
+            <div class="video-grid">
+                <div class="video-card hidden">
+                    <div class="video-wrapper">
+                        <video controls
+                            poster="/im/Screenshot 2025-12-15 230921.png">
+                            <source src="/im/261684_large.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <h3>Penthouse Walkthrough</h3>
+                </div>
+                <div class="video-card hidden">
+                    <div class="video-wrapper">
+                        <video controls
+                            poster="/im/Screenshot 2025-12-15 231231.png ">
+                            <source src="/im/istockphoto-483672691-640_adpp_is.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <h3>Family Home Tour</h3>
+                </div>
+                <div class="video-card hidden">
+                    <div class="video-wrapper">
+                        <video controls
+                            poster="/im/Screenshot 2025-12-15 231359.png">
+                            <source src="/im/istockphoto-1874738557-640_adpp_is.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <h3>Backyard Oasis</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2025 EcoHome Estates. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. Dynamic Scroll Animations using Intersection Observer
+            const observerOptions = {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, observerOptions);
+
+            // Select all elements with the 'hidden' class to observe
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach((el) => observer.observe(el));
+
+
+            // 2. Simple Mobile Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    // Simple toggle for demo purposes
+                    if (navLinks.style.display === "flex") {
+                        navLinks.style.display = "none";
+                    } else {
+                        navLinks.style.display = "flex";
+                        navLinks.style.flexDirection = "column";
+                        navLinks.style.position = "absolute";
+                        navLinks.style.top = "60px";
+                        navLinks.style.right = "0";
+                        navLinks.style.backgroundColor = "white";
+                        navLinks.style.width = "100%";
+                        navLinks.style.padding = "20px";
+                        navLinks.style.boxShadow = "0 5px 10px rgba(0,0,0,0.1)";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

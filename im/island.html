@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Islands | Exclusive Private Real Estate</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'island-blue': '#006D77',
+                        'island-light': '#83C5BE',
+                        'sand': '#EDF6F9',
+                        'dark-slate': '#1D3557',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for things Tailwind handles differently */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hide scrollbar for gallery */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-slate-800 bg-sand antialiased selection:bg-island-light selection:text-white">
+
+    <nav id="navbar"
+        class="fixed w-full z-50 transition-all duration-300 py-4 px-6 lg:px-12 glass-panel border-b border-white/20">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-serif font-bold text-dark-slate flex items-center gap-2">
+                <i class="fa-solid fa-water text-island-blue"></i>
+                AURA<span class="font-light">ISLANDS</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#featured" class="text-sm font-medium hover:text-island-blue transition">Destinations</a>
+                <a href="#lifestyle" class="text-sm font-medium hover:text-island-blue transition">Lifestyle</a>
+                <a href="#about" class="text-sm font-medium hover:text-island-blue transition">About</a>
+                <a href="#contact"
+                    class="px-6 py-2.5 bg-dark-slate text-white rounded-full text-sm font-medium hover:bg-island-blue transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300">
+                    Private Viewing
+                </a>
+            </div>
+
+            <button class="md:hidden text-2xl text-dark-slate" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center gap-8">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-2xl"><i
+                class="fa-solid fa-times"></i></button>
+        <a href="#featured" class="text-2xl font-serif" onclick="toggleMenu()">Destinations</a>
+        <a href="#lifestyle" class="text-2xl font-serif" onclick="toggleMenu()">Lifestyle</a>
+        <a href="#contact" class="text-2xl font-serif" onclick="toggleMenu()">Contact</a>
+    </div>
+
+    <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=2070&auto=format&fit=crop"
+                alt="Maldives Island" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-sand"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16 fade-in-up">
+            <span
+                class="inline-block py-1 px-3 border border-white/50 rounded-full text-white text-xs tracking-widest uppercase mb-4 backdrop-blur-sm">Exclusive
+                Listings</span>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                Find Your Sanctuary <br> <span class="italic font-light">In The Ocean</span>
+            </h1>
+            <p class="text-white/90 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto drop-shadow-md">
+                Discover unmapped luxury. We curate the world's most secluded private islands and waterfront estates.
+            </p>
+
+            <div
+                class="glass-panel p-2 rounded-full max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-2 shadow-2xl">
+                <div class="flex-1 w-full px-6 py-3 border-b md:border-b-0 md:border-r border-gray-300/50">
+                    <label class="block text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Location</label>
+                    <input type="text" placeholder="Fiji, Maldives, Caribbean..."
+                        class="w-full bg-transparent outline-none text-dark-slate placeholder-gray-600 font-medium">
+                </div>
+                <div class="flex-1 w-full px-6 py-3 border-b md:border-b-0 md:border-r border-gray-300/50">
+                    <label class="block text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Property
+                        Type</label>
+                    <select class="w-full bg-transparent outline-none text-dark-slate font-medium cursor-pointer">
+                        <option>Private Island</option>
+                        <option>Beachfront Villa</option>
+                        <option>Overwater Bungalow</option>
+                    </select>
+                </div>
+                <button
+                    class="w-full md:w-auto bg-island-blue hover:bg-dark-slate text-white rounded-full h-12 px-8 font-medium transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-12 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-200">
+            <div class="fade-in-up">
+                <p class="text-3xl font-serif font-bold text-dark-slate">50+</p>
+                <p class="text-sm text-gray-500 uppercase tracking-wide mt-1">Private Islands</p>
+            </div>
+            <div class="fade-in-up" style="transition-delay: 100ms">
+                <p class="text-3xl font-serif font-bold text-dark-slate">$2.5B</p>
+                <p class="text-sm text-gray-500 uppercase tracking-wide mt-1">Property Value</p>
+            </div>
+            <div class="fade-in-up" style="transition-delay: 200ms">
+                <p class="text-3xl font-serif font-bold text-dark-slate">12</p>
+                <p class="text-sm text-gray-500 uppercase tracking-wide mt-1">Countries</p>
+            </div>
+            <div class="fade-in-up" style="transition-delay: 300ms">
+                <p class="text-3xl font-serif font-bold text-dark-slate">24/7</p>
+                <p class="text-sm text-gray-500 uppercase tracking-wide mt-1">Concierge</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12 fade-in-up">
+                <div>
+                    <span class="text-island-blue font-bold tracking-widest text-xs uppercase">Curated Portfolio</span>
+                    <h2 class="text-4xl font-serif text-dark-slate mt-2">Featured Destinations</h2>
+                </div>
+                <a href="#"
+                    class="hidden md:flex items-center gap-2 text-dark-slate font-medium hover:text-island-blue transition">
+                    View All Properties <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div
+                    class="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 fade-in-up cursor-pointer">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop"
+                            alt="Resort"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                            For Sale
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-dark-slate text-white px-4 py-2 rounded-lg font-serif">
+                            $12,500,000
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-gray-500 text-xs mb-3">
+                            <span><i class="fa-solid fa-location-dot"></i> Exuma, Bahamas</span>
+                        </div>
+                        <h3 class="text-2xl font-serif text-dark-slate mb-3 group-hover:text-island-blue transition">
+                            Azure Cay Estate</h3>
+                        <div class="flex justify-between border-t border-gray-100 pt-4 text-sm text-gray-600">
+                            <span><i class="fa-solid fa-bed mr-2"></i> 6 Beds</span>
+                            <span><i class="fa-solid fa-bath mr-2"></i> 7 Baths</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-2"></i> 45 Acres</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 fade-in-up cursor-pointer"
+                    style="transition-delay: 100ms">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1505881402582-c5bc11054f91?q=80&w=2000&auto=format&fit=crop"
+                            alt="Resort"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 left-4 bg-island-blue/90 text-white backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                            New Listing
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-dark-slate text-white px-4 py-2 rounded-lg font-serif">
+                            $8,200,000
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-gray-500 text-xs mb-3">
+                            <span><i class="fa-solid fa-location-dot"></i> Bora Bora, French Polynesia</span>
+                        </div>
+                        <h3 class="text-2xl font-serif text-dark-slate mb-3 group-hover:text-island-blue transition">
+                            Lagoon Pearl Villa</h3>
+                        <div class="flex justify-between border-t border-gray-100 pt-4 text-sm text-gray-600">
+                            <span><i class="fa-solid fa-bed mr-2"></i> 4 Beds</span>
+                            <span><i class="fa-solid fa-bath mr-2"></i> 4 Baths</span>
+                            <span><i class="fa-solid fa-ship mr-2"></i> Private Dock</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 fade-in-up cursor-pointer"
+                    style="transition-delay: 200ms">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="/im/hugh-whyte-xQ8er7S8auo-unsplash.jpg"
+                            alt="Resort"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                            Private Island
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-dark-slate text-white px-4 py-2 rounded-lg font-serif">
+                            $45,000,000
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-gray-500 text-xs mb-3">
+                            <span><i class="fa-solid fa-location-dot"></i> Phuket, Thailand</span>
+                        </div>
+                        <h3 class="text-2xl font-serif text-dark-slate mb-3 group-hover:text-island-blue transition">
+                            Emerald Coast Isle</h3>
+                        <div class="flex justify-between border-t border-gray-100 pt-4 text-sm text-gray-600">
+                            <span><i class="fa-solid fa-bed mr-2"></i> 12 Beds</span>
+                            <span><i class="fa-solid fa-bath mr-2"></i> 15 Baths</span>
+                            <span><i class="fa-solid fa-helicopter mr-2"></i> Helipad</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center md:hidden">
+                <a href="#"
+                    class="inline-block px-8 py-3 border border-dark-slate rounded-full text-dark-slate font-medium hover:bg-dark-slate hover:text-white transition">View
+                    All Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="lifestyle" class="py-20 bg-dark-slate text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+            <i class="fa-solid fa-leaf text-[40rem] -translate-y-1/4 translate-x-1/4"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative fade-in-up">
+                <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-island-light opacity-50">
+                </div>
+                <img src="/im/mohd-elle-oji_NGmBI5o-unsplash.jpg"
+                    alt="Lifestyle" class="rounded-lg shadow-2xl relative z-10">
+                <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-island-blue rounded-lg -z-0"></div>
+            </div>
+
+            <div class="fade-in-up">
+                <span class="text-island-light font-bold tracking-widest text-xs uppercase">The Lifestyle</span>
+                <h2 class="text-4xl md:text-5xl font-serif mt-4 mb-6 leading-tight">Beyond just a home.<br>A private
+                    world.</h2>
+                <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                    Owning an island isn't just about real estate; it's about total freedom. Uninterrupted horizons,
+                    pristine nature, and a legacy for generations. We handle the complexities of remote ownership so you
+                    can enjoy the serenity.
+                </p>
+
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-island-light">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <span>Eco-sustainable energy solutions included</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-island-light">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <span>Legal and maritime logistics management</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-island-light">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <span>Exclusive access to off-market listings</span>
+                    </li>
+                </ul>
+
+                <button
+                    class="px-8 py-4 bg-island-light text-dark-slate font-bold rounded-full hover:bg-white transition shadow-lg hover:shadow-cyan-500/20">
+                    Read Our Guide
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-50 pt-20 pb-10 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="#" class="text-2xl font-serif font-bold text-dark-slate flex items-center gap-2 mb-6">
+                        <i class="fa-solid fa-water text-island-blue"></i>
+                        AURA
+                    </a>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        The world's premier brokerage for private islands and luxury waterfront estates.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-dark-slate mb-6">Discovery</h4>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-island-blue transition">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-island-blue transition">Trending Islands</a></li>
+                        <li><a href="#" class="hover:text-island-blue transition">Waterfront Villas</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-dark-slate mb-6">Company</h4>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-island-blue transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-island-blue transition">Our Team</a></li>
+                        <li><a href="#" class="hover:text-island-blue transition">Press</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-dark-slate mb-6">Stay Updated</h4>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address"
+                            class="w-full bg-white border border-gray-200 px-4 py-3 rounded-lg outline-none focus:border-island-blue transition">
+                        <button
+                            class="bg-dark-slate text-white py-3 rounded-lg font-medium hover:bg-island-blue transition">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200 text-sm text-gray-400">
+                <p>&copy; 2023 Aura Islands Real Estate. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-dark-slate"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="#" class="hover:text-dark-slate"><i class="fa-brands fa-twitter text-lg"></i></a>
+                    <a href="#" class="hover:text-dark-slate"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('translate-x-full');
+        }
+
+        // 2. Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+                navbar.classList.remove('py-4', 'glass-panel');
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+                navbar.classList.add('py-4', 'glass-panel');
+            }
+        });
+
+        // 3. Scroll Reveal Animation (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
